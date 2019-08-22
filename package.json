@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/jonathanjwatson/sethum-ipsum/issues"
   },
-  "homepage": "https://github.com/jonathanjwatson/sethum-ipsum#readme"
+  "homepage": "https://github.com/jonathanjwatson/sethum-ipsum#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
