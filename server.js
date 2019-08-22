@@ -4,6 +4,9 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+
 //need to store different quotes
 //array of strings
 let randomQuotes = [
@@ -21,6 +24,10 @@ let randomQuotes = [
 // /api/quotes
 // returns a collection of quotes
 // GET
+
+app.get('/api/quotes', function(req, res) {
+    return res.json(randomQuotes);
+});
 
 // /api/quotes/random
 // returns a single random quote
