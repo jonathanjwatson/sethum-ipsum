@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Add New Quotes</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <input type="text" id="new-quote" />
+    <input type="submit" id="new-quote-submit" text="Make a new quote" />
+
+
+
+
+    <script>
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:3000/api/quotes",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "User-Agent": "PostmanRuntime/7.15.2",
+                "Accept": "*/*",
+                "Cache-Control": "no-cache",
+                "Postman-Token": "0d5cb160-c54e-4d50-8ec0-928e0b7fa055,bdab33da-5edd-4366-86d2-137bf987ff56",
+                "Host": "localhost:3000",
+                "Accept-Encoding": "gzip, deflate",
+                "Content-Length": "29",
+                "Connection": "keep-alive",
+                "cache-control": "no-cache"
+            },
+            "processData": false,
+            "data": "{\"new\": \"Hmmm. No. Not yet.\"}"
+        }
+        $("#new-quote-submit").on("click", function (event) {
+            event.preventDefault();
+            console.log("you clicked my button");
+            let newQuote = $("#new-quote").val().trim();
+            console.log(newQuote);
+            let data = JSON.stringify({
+                new: newQuote
+            });
+            settings.data = data;
+            console.log(settings);
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+            });
+        });
+
+    </script>
+</body>
+
+</html>

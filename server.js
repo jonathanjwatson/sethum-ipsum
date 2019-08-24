@@ -29,6 +29,10 @@ app.get('/api/quotes', function(req, res) {
     return res.json(randomQuotes);
 });
 
+app.get('/', function(req, res) {
+    return res.sendFile(__dirname + '/index.html');
+})
+
 // /api/quotes/random
 // returns a single random quote
 // GET
@@ -40,8 +44,8 @@ app.get('/api/quotes', function(req, res) {
 
 app.post('/api/quotes', function(req, res) {
     const newQuote = req.body.new;
-    // console.log(newQuote);
-    // randomQuotes.push(newQuote);
+    console.log(newQuote);
+    randomQuotes.push(newQuote);
     //OPTION 1 - fs.appendFile
     //OPTION 2 - SQL
     // require mysql
